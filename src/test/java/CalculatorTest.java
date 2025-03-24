@@ -20,7 +20,7 @@ public class CalculatorTest {
 
     @Test
     void TestAddFail(){
-        Exception ex =  assertThrows(IllegalArgumentException.class, ()->{calc.add(Integer.MAX_VALUE, 4);});
+        Exception ex =  assertThrows(IllegalArgumentException.class, () -> {calc.add(Integer.MAX_VALUE, 4);});
         assertEquals("Your values are too big", ex.getMessage());
     }
 
@@ -31,8 +31,8 @@ public class CalculatorTest {
 
     @Test
     void TestSubFail(){
-        Exception ex = assertThrows(IllegalArgumentException.class, () -> {calc.sub(Integer.MIN_VALUE, 10);});
-        assertEquals("Your numbers are too small", ex.getMessage());
+        Exception ex = assertThrows(IllegalStateException.class, () -> {calc.sub(1, 10);});
+        assertEquals("No negative numbers", ex.getMessage());
     }
 
 }
