@@ -24,5 +24,15 @@ public class CalculatorTest {
         assertEquals("Your values are too big", ex.getMessage());
     }
 
+    @Test
+    void TestSubSuccess(){
+        assertEquals(8, calc.sub(12, 4));
+    }
+
+    @Test
+    void TestSubFail(){
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {calc.sub(Integer.MIN_VALUE, 10);});
+        assertEquals("Your numbers are too small", ex.getMessage());
+    }
 
 }
